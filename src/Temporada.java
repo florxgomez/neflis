@@ -22,8 +22,9 @@ public class Temporada implements Contenido {
         capitulos.add(capitulo);
     }
 
-    protected Double getDuracion(){
-        return capitulos.stream().map(c-> c.getDuracion()).reduce(0.0, Double :: sum );
+    public Integer getDuracion(){
+
+        return capitulos.stream().map(c-> c.getDuracion()).reduce(0, Integer :: sum );
     }
 
     public Capitulo ultimoCapitulo(){

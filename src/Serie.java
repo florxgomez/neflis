@@ -27,8 +27,8 @@ public class Serie implements Contenido{
        return this.genero;
     }
 
-    public Double getDuracion(){
-        return temporadas.stream().map(t-> t.getDuracion()).reduce(0., Double :: sum);
+    public Integer getDuracion(){
+        return temporadas.stream().map(t-> t.getDuracion()).reduce(0, Integer :: sum);
     }
 
 }

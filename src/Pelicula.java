@@ -4,7 +4,7 @@ public class Pelicula implements Contenido{
 
     protected ArrayList<Actor> actores =new ArrayList<>();
     private String genero;
-    protected Double duracion;
+    protected Integer duracion;
 
     public Boolean fueVistoCompletoPor(Usuario usuario){
         return usuario.getContenidosVistos().contains(this);
@@ -21,6 +21,10 @@ public class Pelicula implements Contenido{
 
     public String getGenero() {
         return genero;
+    }
+
+    public Integer getDuracion(){
+        return duracion;
     }
 
     public void setGenero(String genero) {

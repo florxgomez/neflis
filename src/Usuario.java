@@ -28,9 +28,15 @@ public class Usuario{
     }
 
     /*public String generoPreferido(){
-      this.generosQueVio();
-      return this.contenidosVistos.stream().map(c-> c.getGenero().equals(this.generosQueVio()))
-              .stream().max(map(c-> c.getDuracion()).reduce(0., Double :: sum));
-        //sumatoria de duraciones de contenido por genero
-    } */
+      return this.generosQueVio().stream().filter(g -> this.minutosPorGenero(g));
+    }*/
+
+    public Integer minutosPorGenero(String genero){
+        return this.contenidosVistosPorGenero(genero).stream().mapToInt(c -> c.getDuracion()).sum();
+    }
+
+    List<Contenido> contenidosVistosPorGenero(String genero){
+        return this.contenidosVistos.stream().filter(c -> c.getGenero().equals(genero)).collect(Collectors.toList());
+    }
 }
+

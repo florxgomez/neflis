@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Capitulo implements Contenido{
 
-    protected Double duracion;
+    protected Integer duracion;
     private Temporada temporada;
 
     private List<Actor> actoresInvitados=new ArrayList<>();
@@ -12,7 +12,7 @@ public class Capitulo implements Contenido{
         return usuario.getContenidosVistos().contains(this);
     }
 
-    public Double getDuracion() {
+    public Integer getDuracion() {
         return duracion;
     }
 
@@ -25,7 +25,7 @@ public class Capitulo implements Contenido{
         return this.temporada.getGenero();
     }
 
-    public void setDuracion(Double min) {
+    public void setDuracion(Integer min) {
         this.duracion = min;
     }
 }
