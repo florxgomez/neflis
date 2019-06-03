@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,6 +12,7 @@ public class Usuario{
     }
 
     public void ver(Contenido contenido){
+
         contenidosVistos.add(contenido);
     }
 
@@ -27,9 +29,10 @@ public class Usuario{
                 .collect(Collectors.toList());
     }
 
-    /*public String generoPreferido(){
-      return this.generosQueVio().stream().filter(g -> this.minutosPorGenero(g));
-    }*/
+    public String generoPreferido(){
+      return this.generosQueVio().stream().max(Comparator.comparing(g -> this.minutosPorGenero(g))).get();
+
+    }
 
     public Integer minutosPorGenero(String genero){
         return this.contenidosVistosPorGenero(genero).stream().mapToInt(c -> c.getDuracion()).sum();

@@ -19,6 +19,7 @@ public class Temporada implements Contenido {
     }
 
     public void addCapitulo(Capitulo capitulo){
+
         capitulos.add(capitulo);
     }
 
@@ -28,14 +29,22 @@ public class Temporada implements Contenido {
     }
 
     public Capitulo ultimoCapitulo(){
+
         return capitulos.get(capitulos.size()-1);
     }
 
     public Boolean actuo(Actor actor){
+
         return actores.contains(actor);
     }
 
-    public String getGenero(){return serie.getGenero();}
+    public String getGenero(){
+
+        return serie.getGenero();}
 
 
+    public List<Capitulo> getCapitulos() {
+
+        return capitulos;
+    }
 }

@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Serie implements Contenido{
-    private List<Temporada> temporadas= new ArrayList<>();
-    protected String genero;
+    private List<Temporada> temporadas = new ArrayList<>();
+    private String genero;
 
 
     public void addTemporada(Temporada temporada){
@@ -16,7 +16,11 @@ public class Serie implements Contenido{
     }
 
     public Capitulo ultimoCapitulo(){
-        return temporadas.get(temporadas.size()-1).ultimoCapitulo();
+        return this.ultimaTemporada().ultimoCapitulo();
+    }
+
+    public Temporada ultimaTemporada(){
+        return temporadas.get(temporadas.size()-1);
     }
 
     public Boolean actuo(Actor actor){

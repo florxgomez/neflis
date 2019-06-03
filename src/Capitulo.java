@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Capitulo implements Contenido{
 
-    protected Integer duracion;
+    private Integer duracion;
     private Temporada temporada;
 
     private List<Actor> actoresInvitados=new ArrayList<>();

@@ -6,6 +6,4 @@ public class Actor {
         return contenido.actuo(this);
     }
 
-   //public List<Usuario> quienesSonTusFans(){ return }
-
 }
