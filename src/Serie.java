@@ -10,9 +10,9 @@ public class Serie implements Contenido{
         temporadas.add(temporada);
     }
 
-    public Boolean fueVistoCompletoPor(Usuario user){
+    public Boolean fueVistoCompletoPor(Usuario usuario){
         return this.temporadas.stream()
-                .allMatch(t-> t.fueVistoCompletoPor(user));
+                .allMatch(t-> t.fueVistoCompletoPor(usuario));
     }
 
     public Capitulo ultimoCapitulo(){
@@ -24,15 +24,20 @@ public class Serie implements Contenido{
     }
 
     public Boolean actuo(Actor actor){
-        return temporadas.stream().anyMatch(t-> t.actuo(actor))    ;
+
+        return temporadas.stream().anyMatch(t-> t.actuo(actor));
     }
 
     public String getGenero(){
-       return this.genero;
+
+        return this.genero;
     }
 
     public Integer getDuracion(){
         return temporadas.stream().map(t-> t.getDuracion()).reduce(0, Integer :: sum);
     }
 
+    public List<Temporada> getTemporadas() {
+        return temporadas;
+    }
 }

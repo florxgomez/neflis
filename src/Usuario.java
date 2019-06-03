@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Usuario{
-    private List<Contenido> contenidosVistos=new ArrayList<>();
+    private List<Contenido> contenidosVistos = new ArrayList<>();
 
 
     public Boolean visteCompleto(Contenido contenido) {
-        return this.contenidosVistos.contains(contenido);
+        return contenido.fueVistoCompletoPor(this);
     }
 
     public void ver(Contenido contenido){
