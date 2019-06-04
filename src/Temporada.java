@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +10,7 @@ public class Temporada implements Contenido {
     private List<Actor> actores=new ArrayList<>();
     private Serie serie;
     private Integer cantCapitulos;
+    private Boolean esDestacado;
 
     Temporada(Serie serie) {
         this.serie=serie;
@@ -21,6 +24,18 @@ public class Temporada implements Contenido {
     public void addCapitulo(Capitulo capitulo){
 
         capitulos.add(capitulo);
+    }
+
+    public Boolean esDestacado() {
+        return esDestacado;
+    }
+
+    public void ver(Usuario usuario){
+        usuario.getContenidosVistos().add(this);
+        if(!usuario.getContenidosVistos().contains(this.serie)){
+            usuario.getContenidosVistos().add(this.serie);
+        }
+
     }
 
     public Integer getDuracion(){
@@ -46,5 +61,9 @@ public class Temporada implements Contenido {
     public List<Capitulo> getCapitulos() {
 
         return capitulos;
+    }
+
+    public void setSerie(Serie serie) {
+        this.serie = serie;
     }
 }

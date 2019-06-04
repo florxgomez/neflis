@@ -5,15 +5,20 @@ import java.util.stream.Collectors;
 
 public class Usuario{
     private List<Contenido> contenidosVistos = new ArrayList<>();
+    private List<Contenido> contenidosDestacados = new ArrayList<>();
 
 
     public Boolean visteCompleto(Contenido contenido) {
         return contenido.fueVistoCompletoPor(this);
+    };
+
+
+    public List<Contenido> contenidosIncompletos(){
+        return contenidosVistos.stream().filter(c -> !c.fueVistoCompletoPor(this)).collect(Collectors.toList());
     }
 
     public void ver(Contenido contenido){
-
-        contenidosVistos.add(contenido);
+        contenido.ver(this);
     }
 
     public List getContenidosVistos(){
@@ -40,6 +45,10 @@ public class Usuario{
 
     List<Contenido> contenidosVistosPorGenero(String genero){
         return this.contenidosVistos.stream().filter(c -> c.getGenero().equals(genero)).collect(Collectors.toList());
+    }
+
+    public List<Contenido> contenidosRecomendados(){
+        return this.contenidosIncompletos();
     }
 }
 

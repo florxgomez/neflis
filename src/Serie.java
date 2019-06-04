@@ -1,9 +1,16 @@
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Serie implements Contenido{
     private List<Temporada> temporadas = new ArrayList<>();
     private String genero;
+    private Boolean esDestacado;
+
+    Serie(Boolean esDestacado){
+        this.esDestacado = esDestacado;
+    }
 
 
     public void addTemporada(Temporada temporada){
@@ -15,12 +22,20 @@ public class Serie implements Contenido{
                 .allMatch(t-> t.fueVistoCompletoPor(usuario));
     }
 
+    public void ver(Usuario usuario){
+        usuario.getContenidosVistos().add(this);
+    }
+
     public Capitulo ultimoCapitulo(){
         return this.ultimaTemporada().ultimoCapitulo();
     }
 
     public Temporada ultimaTemporada(){
         return temporadas.get(temporadas.size()-1);
+    }
+
+    public Boolean esDestacado() {
+        return esDestacado;
     }
 
     public Boolean actuo(Actor actor){
