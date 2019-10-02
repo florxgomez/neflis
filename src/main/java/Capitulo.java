@@ -34,13 +34,6 @@ public class Capitulo implements Contenido{
         this.duracion = min;
     }
 
-    public void ver(Usuario usuario){
-        usuario.getContenidosVistos().add(this);
-        if (!usuario.getContenidosVistos().contains(this.temporada)){
-            this.temporada.ver(usuario);
-        }
-    }
-
     public void setTemporada(Temporada temporada) {
         this.temporada = temporada;
     }

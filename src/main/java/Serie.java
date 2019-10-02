@@ -20,10 +20,6 @@ public class Serie implements Contenido{
                 .allMatch(t-> t.fueVistoCompletoPor(usuario));
     }
 
-    public void ver(Usuario usuario){
-        usuario.getContenidosVistos().add(this);
-    }
-
     public Capitulo ultimoCapitulo(){
         return this.ultimaTemporada().ultimoCapitulo();
     }

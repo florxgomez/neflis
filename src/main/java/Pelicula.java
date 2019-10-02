@@ -9,7 +9,6 @@ public class Pelicula implements Contenido{
     private Boolean esDestacado;
 
     public Boolean fueVistoCompletoPor(Usuario usuario){
-
         return usuario.getContenidosVistos().contains(this);
     }
 

@@ -30,14 +30,6 @@ public class Temporada implements Contenido {
         return esDestacado;
     }
 
-    public void ver(Usuario usuario){
-        usuario.getContenidosVistos().add(this);
-        if(!usuario.getContenidosVistos().contains(this.serie)){
-            usuario.getContenidosVistos().add(this.serie);
-        }
-
-    }
-
     public Integer getDuracion(){
 
         return capitulos.stream().map(c-> c.getDuracion()).reduce(0, Integer :: sum );
