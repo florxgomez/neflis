@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class Actor {
 
     public Boolean actuoEn(Contenido contenido){

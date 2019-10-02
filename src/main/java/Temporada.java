@@ -1,4 +1,4 @@
-import com.sun.org.apache.xpath.internal.operations.Bool;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,4 +66,5 @@ public class Temporada implements Contenido {
     public void setSerie(Serie serie) {
         this.serie = serie;
     }
+
 }

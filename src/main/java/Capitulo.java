@@ -49,7 +49,6 @@ public class Capitulo implements Contenido{
         return esDestacado;
     }
 
-
     public void setEsDestacado(Boolean esDestacado) {
         this.esDestacado = esDestacado;
     }

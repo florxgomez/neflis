@@ -6,19 +6,22 @@ import java.util.stream.Collectors;
 public class Usuario{
     private List<Contenido> contenidosVistos = new ArrayList<>();
     private List<Contenido> contenidosDestacados = new ArrayList<>();
+    private List<Contenido> contenidosCompletos=new ArrayList<>();
 
 
     public Boolean visteCompleto(Contenido contenido) {
-        return contenido.fueVistoCompletoPor(this);
-    };
-
+        return this.contenidosVistos.contains(contenido);
+    }
 
     public List<Contenido> contenidosIncompletos(){
         return contenidosVistos.stream().filter(c -> !c.fueVistoCompletoPor(this)).collect(Collectors.toList());
     }
 
     public void ver(Contenido contenido){
-        contenido.ver(this);
+        this.contenidosVistos.add(contenido);
+        if (contenido.fueVistoCompletoPor(this)){
+            this.contenidosCompletos.add(contenido);
+        }
     }
 
     public List getContenidosVistos(){
